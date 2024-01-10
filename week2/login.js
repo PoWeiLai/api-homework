@@ -25,7 +25,7 @@
 //   },
 // }).mount('#app');
 
-import {createApp} from "https://unpkg.com/vue@3/dist/vue.global.js";
+import {createApp} from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
 
 createApp({
   data(){
@@ -41,10 +41,10 @@ createApp({
     const url="https://vue3-course-api.hexschool.io/v2"
     const path="powei"
    
-    axios.post(`${url}/admin/signin`,this.users).then((res)=>{
+    axios.post(`${url}/admin/signin`,this.users).then((res)=>{   //取出data裡user資訊進入登入頁面
   console.log(res.data)
   const {token,expired} =res.data
-  document.cookie = `hasVueToken=${token}; expires=${new Date(expired)}`;
+  document.cookie = `hasVueToken=${token}; expires=${new Date(expired)}`; //需要把token跟時間取出來，從google找document.cookie
 
     }).catch((error)=>{console.log(error)})
     
@@ -53,3 +53,4 @@ createApp({
   }
 
 }).mount("#app")
+
