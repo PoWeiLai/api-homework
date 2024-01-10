@@ -56,7 +56,7 @@ return{
 },
 methods:{
  checkAdmin(){
-  axios.post(`${url}/api/user/check`).then((res)=>{//驗證產品如果成功就會進入getProduct產品訂購畫面，如果驗證不成功跳回原來登入畫面
+  axios.post(`${this.url}/api/user/check`).then((res)=>{//驗證產品如果成功就會進入getProduct產品訂購畫面，如果驗證不成功跳回原來登入畫面
     this.getProduct()
   }).catch((error)=>{console.log(error)
 window.location="login.html"
@@ -65,7 +65,7 @@ window.location="login.html"
   )
  },
  getProduct(){
-  axios.get(`${url}/api/${path}/admin/products`).then((res)=>{
+  axios.get(`${this.url}/api/${this.path}/admin/products`).then((res)=>{
   this.products=res.data.products
   }).catch((error)=>{console.log(error)})
  },openProduct(item){
