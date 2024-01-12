@@ -45,7 +45,7 @@ createApp({
   console.log(res.data)
   const {token,expired} =res.data
   document.cookie = `hasVueToken=${token}; expires=${new Date(expired)}`; //需要把token跟時間取出來，從google找document.cookie
-
+   window.location="products.html"
     }).catch((error)=>{console.log(error)})
     
 
